@@ -138,9 +138,16 @@ function App() {
                     : 'bg-white text-gray-800 border border-gray-200 rounded-bl-md shadow-sm'
                 }`}
               >
-                <p className="text-sm leading-relaxed whitespace-pre-wrap">
-                  {message.content}
-                </p>
+                {message.type === 'user' ? (
+                  <p className="text-sm leading-relaxed whitespace-pre-wrap">
+                    {message.content}
+                  </p>
+                ) : (
+                  <div 
+                    className="text-sm leading-relaxed prose prose-sm max-w-none"
+                    dangerouslySetInnerHTML={{ __html: message.content }}
+                  />
+                )}
                 <div
                   className={`text-xs mt-2 ${
                     message.type === 'user' ? 'text-blue-100' : 'text-gray-500'
