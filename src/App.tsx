@@ -44,7 +44,7 @@ function App() {
     setError(null);
 
     try {
-      const response = await fetch('http://localhost:5678/webhook/5313b023-6948-497f-97f6-a70393623320', {
+      const response = await fetch(import.meta.env.VITE_API_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -93,8 +93,8 @@ function App() {
       <div className="bg-white border-b border-gray-200 px-4 py-3 shadow-sm">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-xl font-semibold text-gray-800 flex items-center gap-2">
-            <Bot className="w-6 h-6 text-blue-600" />
-            AI Chat Assistant
+            <img src='/tims.jpeg' height={40} width={40}></img>
+            TIMS Chat Assistant
           </h1>
         </div>
       </div>
