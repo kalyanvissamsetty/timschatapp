@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User, Loader2 } from 'lucide-react';
+import { v4 as uuidv4 } from "uuid";
 
+const chatid = uuidv4()
 interface Message {
   id: string;
   type: 'user' | 'assistant';
@@ -51,8 +53,10 @@ function App() {
         },
         body: JSON.stringify({
           question: userMessage.content,
+          chatid
         }),
       });
+
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
